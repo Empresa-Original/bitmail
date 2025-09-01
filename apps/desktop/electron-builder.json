@@ -1,0 +1,5 @@
+{
+  "appId": "to.bitmail.desktop",
+  "files": [".next/**", "electron/**", "package.json"],
+  "mac": { "category": "public.app-category.productivity" }
+}

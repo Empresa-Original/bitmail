@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": ["next/core-web-vitals"],
+  "env": {
+    "es2022": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {}
+}

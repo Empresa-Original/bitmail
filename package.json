@@ -1,0 +1,25 @@
+{
+  "name": "bitmail1.0",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@10",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "prettier -w .",
+    "desktop": "npm run dev -w apps/desktop"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6"
+  },
+  "dependencies": {
+    "@metamask/jazzicon": "^2.0.0",
+    "ethereum-blockies-base64": "^1.0.2"
+  }
+}
