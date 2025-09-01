@@ -1,38 +1,33 @@
+
 # BitMail
 
-A Bitcoin-native messaging client inspired by Outlook. Send and receive "emails" addressed by Bitcoin identities, with a familiar mailbox UI (inbox, folders, search, rules) and strong end-to-end encryption.
+BitMail is a Bitcoin-native messaging client inspired by Outlook, with strong privacy and modern UX.
 
-This repo currently contains design docs to converge on key decisions before scaffolding code.
+## Current Features
+- Monorepo: Electron + Next.js desktop app, core logic, UI, adapters.
+- Ethereum wallet login (SIWE), EIP-55 checksummed addresses, robust error handling.
+- User profile: Select Jazzicon or Blockies avatar, instantly reflected in header and settings.
+- Settings panel: Edit identity, ENS, chain ID, address, avatar type, and Save button for explicit persistence.
+- Mailbox UI: Inbox, sent, drafts, archive, search, compose, thread view.
+- Nostr adapter scaffolded for future messaging transport.
+- Security-first: E2EE planned, local storage, privacy-first design.
+- .gitignore excludes all node_modules and build artifacts.
 
-## Vision
-- Outlook-like UX: multi-account, inbox, sent, drafts, search, filters, rules, signatures.
-- Bitcoin-native addressing: use BTC-linked identities for addressing and routing.
-- Private by default: end-to-end encrypted content and metadata minimization.
-- Cross-platform: desktop-first (Electron) with a web companion (optional) and mobile later.
+## Roadmap
+- Implement Nostr messaging transport and E2EE.
+- Add Lightning adapter for paid messaging/anti-spam.
+- Polish mailbox UI and add notifications.
+- Extend settings/profile for more identity options.
+- Improve docs for onboarding and architecture.
 
-## What “BTC address email” could mean
-Several transport options can back a BTC-linked identity. We’ll select one for the MVP:
-- Nostr (recommended): map a BTC address to a Nostr pubkey; messages ride Nostr relays; strong E2EE via NIP-04/17; good for near-real-time and offline sync.
-- Lightning (L2): use keysend or BOLT12 offers to carry encrypted payloads; pay-to-send and anti-spam baked-in; requires node or LSP.
-- SMTP bridge: interop with traditional email by routing between BitMail and SMTP using a gateway service. Optional and clearly labeled.
-- On-chain L1: not suitable for message transport (cost/latency/privacy); can be used only for registry/attestations.
-
-## Repository layout (planned)
+## Repository layout
 - apps/
   - desktop/ (Electron + Next.js)
-  - web/ (Next.js)
 - packages/
   - core/ (crypto, identity, transport abstractions)
   - adapters/ (nostr, lightning, smtp-bridge)
   - ui/ (shared UI primitives)
 - docs/
 
-## Next steps
-1) Align on transport and addressing for the MVP.
-2) Scaffold the app (Electron + Next.js + TypeScript + Nx/turborepo).
-3) Implement identity & key management.
-4) Implement chosen transport adapter and E2EE.
-5) Build mailbox UI.
-
-See docs/ for details and open questions.
+See docs/ for architecture, product brief, and open questions.
 
